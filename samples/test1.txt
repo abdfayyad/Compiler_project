@@ -1,0 +1,122 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp( MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  int i=0;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home:  MyProductPage(),
+    );
+  }
+}
+
+class MyProductPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Row(
+            children: [
+              Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset("link of photo"),
+                    const SizedBox(height: 10.5,),
+                    const  Text("name:cheese"),
+                    const Text("Price:33"),
+                    const  Text("date:2022/12/22"),
+                    const Text("Quantity:7")
+
+                  ]
+
+              ),
+              const SizedBox(width: 10.5,),
+               Expanded(
+                child: Container(
+                  child: ListView.builder(
+                      itemCount: 22,
+                      itemBuilder: (BuildContext context, int index) {
+                        return InkWell(
+                          child: Container(
+                            height: 300.2,
+                            width: 150.5,
+                            child:Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    height:250.4,
+                                    width: 150.4,
+                                    child: Image.asset("jdsfh"),
+                                  ),
+                                  const SizedBox(height: 10.4,),
+                                  const Text("name:cheese")
+                                ]
+                            ),
+                          ),
+                        );
+                      }
+                  ),
+                ),
+              )
+
+            ]
+        )
+    );
+  }
+}
+class MyDetailsScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Row(
+            children: [
+              Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset("link of photo"),
+                    const SizedBox(height: 10.5,),
+                    const  Text("name:cheese"),
+                    const Text("Price:33"),
+                    const  Text("date:2022/12/22"),
+                    const Text("Quantity:7")
+
+                  ]
+
+              ),
+              const SizedBox(width: 10.5,),
+               Expanded(
+                child: Container(
+                  child: ListView.builder(
+                      itemCount: 22,
+                      itemBuilder: (BuildContext context, int index) {
+                        return InkWell(
+                          child: Container(
+                            height: 300.2,
+                            width: 150.5,
+                            child:Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    height:250.4,
+                                    width: 150.4,
+                                    child: Image.asset("jdsfh"),
+                                  ),
+                                  const SizedBox(height: 10.4,),
+                                  const Text("name:cheese")
+                                ]
+                            ),
+                          ),
+                        );
+                      }
+                  ),
+                ),
+              )
+
+            ]
+        )
+    );
+  }
+}

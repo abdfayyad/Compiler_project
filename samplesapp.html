@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+   <html>
+           <head>
+               <title>My Application</title>
+           </head>
+           <body>
+                                 <div style="display: flex;">
+<div style="display: flex;">
+<div>
+    <div id="AnimeList"></div>
+
+  <div id="AnimeDetails" class="Anime-details">
+    <img id="AnimeImage" src="" alt="Anime Image" width="200">
+    <h2 id="AnimeName"></h2>
+    <p id="AnimePrice"></p>
+    <p id="AnimeDescription"></p>
+  </div><div>
+</div>
+</div>                <div style="display: flex;">
+<div>
+<div>
+<img src=""alt="Hello, Flutter!" ><div>
+
+<div style="height: 10.5px";></div>
+<p>dd.name </p>
+<p>dd.price </p>
+<p>dd.description </p>
+</div>
+</div><script>class Anime {
+  constructor(name, imageSrc, price, description) {
+    this.name = name;
+    this.imageSrc = imageSrc;
+    this.price = price;
+    this.description = description;
+  }
+}
+
+const Animes = [
+  new Anime('Uzumaki Naruto', 'assets/images/shop.png', '22', 'ddffgfv'),
+  new Anime('Uchiha Sasuke', 'assets/images/shop.png', '333','fvgservesr'),
+  new Anime('Haruno sakura' ,'assets/images/shop.png', '445', 'dsverge'),
+  new  Anime('Hatake Kakashi', 'assets/images/shop.png', '344','rvgregrew'),
+];
+
+const AnimeListContainer = document.getElementById('AnimeList');
+const AnimeDetailsContainer = document.getElementById('AnimeDetails');
+const AnimeImage = document.getElementById('AnimeImage');
+const AnimeName = document.getElementById('AnimeName');
+const AnimePrice = document.getElementById('AnimePrice');
+const AnimeDescription = document.getElementById('AnimeDescription');
+
+function showAnimeList() {
+  AnimeListContainer.style.display = 'block';
+  AnimeDetailsContainer.style.display = 'none';
+}
+
+function showAnimeDetails(Anime) {
+  AnimeListContainer.style.display = 'none';
+  AnimeDetailsContainer.style.display = 'block';
+  AnimeImage.src = Anime.imageSrc;
+  AnimeName.textContent = Anime.name;
+  AnimePrice.textContent = `Price: ${Anime.price}`;
+  AnimeDescription.textContent = Anime.description;
+}
+
+function createAnimeElements() {
+  Animes.forEach((Anime) => {
+    const AnimeItem = document.createElement('div');
+    AnimeItem.classList.add('Anime-item');
+    AnimeItem.innerHTML = `
+      <img src="${Anime.imageSrc}" alt="Anime Image" width="100">
+      <h3>${Anime.name}</h3>
+    `;
+    AnimeItem.addEventListener('click', () => {
+      showAnimeDetails(Anime);
+    });
+
+    AnimeListContainer.appendChild(AnimeItem);
+  });
+}
+
+createAnimeElements();
+</script>           </body>
+  </html>

@@ -1,0 +1,121 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+void main() {
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MyProductPage(),
+    );
+  }
+}
+
+////////////done
+class Product {
+  String name;
+  String imageName;
+  String price;
+  String description;
+
+    Product(this.name , this.imageName , this.price , this.description) ;
+
+}
+
+///////////
+
+class MyProductPage extends StatelessWidget {
+  List productList = [
+   Product(
+        'fruits', 'https://w7.pngwing.com/pngs/628/149/png-transparent-shopping-cart-bag-shopping-cart-logo-grocery-store-cartoon-thumbnail.png', '22', 'ddffgfv'),
+     Product('clothes', 'https://www.shutterstock.com/image-vector/shopping-day-260nw-154670729.jpg', '333',
+        'fvgservesr'),
+     Product(
+        'shopping' ,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSecGmLjLaPRewUSSoDZyMvSAc9E_YBMcn-tJTRkI50MOhQ4sD4g-zsbYDTKJiZ32Wg1Bs&usqp=CAU', '445', 'dsverge'),
+     Product('nour ', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaxUlqzlROtjT6Kj5oEcGmmL_3DcXhdBDP4Gaba6LgirlhcBcpps5G62COo2kLEnRnq8A&usqp=CAU', '344',
+        'rvgregrew')
+
+  ];
+
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Row(children: [
+      Expanded(
+        child: Container(
+          child: ListView.builder(
+              itemCount: productList.length,
+              itemBuilder: (BuildContext context, int index) {
+                return InkWell(
+                  onTap: () {
+              //        Navigator.push(
+               //   context,
+                //    MaterialPageRoute(
+                 //     builder: (context) =>
+                  //          MyDetailsScreen(productList[index])));
+                Get.to(MyDetailsScreen(productList[index]));
+                  },
+                  child: Container(
+                    height: 300.2,
+                    width: 150.5,
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 250.4,
+                            width: 150.4,
+                            child: Image.asset(productList[index].imageName),
+                          ),
+                          const SizedBox(
+                            height: 10.4,
+                          ),
+                          Text(productList[index].name)
+                        ]),
+                  ),
+                );
+              }),
+        ),
+      )
+    ]));
+  }
+}
+
+class MyDetailsScreen extends StatelessWidget {
+  Product dd = new Product();
+  MyDetailsScreen(this.dd);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Row(children: [
+      Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Container(
+          height: 500.4,
+          width: 300.4,
+          child: Image.asset(dd.imageName),
+        ),
+        SizedBox(
+          height: 10.5,
+        ),
+        Text(dd.name),
+        Text(dd.price),
+        Text(dd.description)
+      ])
+    ]));
+  }
+}
+
+
+
+
+
+
+
+
+
+

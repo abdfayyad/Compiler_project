@@ -1,0 +1,179 @@
+lexer grammar dartLexer;
+TAG_WHITESPACE
+            : [ \t\r\n] -> channel(HIDDEN)
+            ;
+SEA_WS
+    :  (' '|'\t'|'\r'? '\n')+ ->skip
+    ;
+fragment
+LETTER:
+      [a-zA-Z]|'_'
+      ;
+INT:DIGIT+;
+fragment
+DIGIT
+    : [0-9]
+    ;
+DOUBLE:
+     DIGIT+(DOT DIGIT+)?
+     ;
+COMMA:',';
+OPEN_LIST:'(';
+CLOSE_LIST:')';
+LIST_OPEN:'[';
+LIST_CLOSE:']';
+BLOCK_OPEN
+    :  '{'
+    ;
+BLOCK_CLOSE
+    : '}'
+    ;
+BOOLEAN:'true'|'false';
+STRING:'"'('\\"'|.)*?'"'|'\''('\\"'|.)*?'\'';
+//MAPELEMENT:
+TYPEINT:'int';
+TYPESTRING:'String';
+TYPEDOUBLE:'double';
+TYPEBOOL:'bool';
+TYPELIST:'List';
+TYPEMAP:'Map';
+TYPEVAR:'var';
+ABSTRACT:'abstract';
+CONTINUE:'continue';
+NEW:'new';
+THIS:'this';
+AS:'as';
+FALSE:'false';
+TRUE:'true';
+FINAL:'final';
+NULL:'null';
+DEFAULT:'default';
+THROW:'throw';
+FINALLY:'finally';
+DO:'do';
+FOR:'for';
+TRY:'try';
+CATCH:'catch';
+GET:'get';
+DYNAMIC:'dynamic';
+RETHROW:'rethrow';
+TYPEDEF:'typedef';
+IF:'if';
+ELSE:'else';
+VAR:'var';
+BREAK:'break';
+ENUM:'enum';
+VOID:'void';
+MAIN:'main';
+IMPLEMENTS:'implements';
+EXTENDS:'extends';
+SET:'set';
+SWITCH:'switch';
+CASE:'case';
+WHILE:'while';
+STATIC:'static';
+IMPORT:'import';
+EXPORT:'export';
+CLASS:'class';
+MULTCOM:'*/';
+RETURN:'return';
+IN:'in';
+SEMICOLON:';';
+Logical_Or_Expression:'?';
+Logical_and_expression:'||';
+Equality_expression:'&&';
+DOT:'.';
+COLON:':';
+EQUAL:'=';
+GTHAN:'>';
+LTHAN:'<';
+NOTEQUAL:'!';
+SINGLE_QUTATION:'\'';
+DOUBLE_QUTATION:'"';
+BACK_SLASH:'\\';
+EQUAL_GTHAN:'>=';
+EQUAL_EQUAL: '==' ;
+EQUAL_LTHAN:'<=';
+PLUS:'+';
+MINUS:'-';
+MULT:'*';
+DIVISIOS:'/';
+MODULUS:'%';
+MINUS_MINUS:'--';
+PLUS_PLUS:'++';
+////////////////////////////////keyword flutter
+RUNAPP:'runApp';
+BUILD:'build';
+BUILDCONTEXT:'BuildContext';
+CONTEXT:'context';
+OVERRIDE:'@override';
+MaterialApp:'MaterialApp';
+GetMaterialApp:'GetMaterialApp';
+GTHAN_EQUAL:'=>';
+GETX:'Get';
+TO:'to';
+HOME:'home';
+LENGTH:'length';
+TEXT:'Text';
+TYPEWIDGET:'Widget';
+STATELESSWIDGIT:'StatelessWidget';
+STATEFULLWIDGIT:'StatefullWidget';
+ONTAP:'onTap';
+Navigator:'Navigator';
+Push:'push';
+MaterialPageRoute:'MaterialPageRoute';
+STYLE:'style';
+TextStyle:'TextStyle';
+IMAGE:'Image';
+ASSET:'asset';
+CONTAINER:'Container';
+CHILD:'child';
+HEIGHT:'height';
+WIDTH:'width';
+DOUBLE_CONTAINER:'double';
+INFINITY:'infinity';
+///abd
+COLUMN:'Column';
+CHILDREN:'children';
+MAIN_AXIS_ALIGNMENT:'mainAxisAlignment';
+MAIN_AXIS_ALIGNMENT_WIDGET:'MainAxisAlignment';
+INK_WELL:'InkWell';
+SIZED_BOX:'SizedBox';
+CENTER:'center';
+CONST:'const';
+PADDING:'padding';
+ITEM_COUNT:'itemCount';
+EDGE_INSETS:'EdgeInsets';
+ITEM_BUILDER:'itemBuilder';
+EXPANDED:'Expanded';
+NETWORK:'network';
+LIST_VIEW:'ListView';
+BUILDER:'builder';
+TITLE:'title';
+CENTER_TITLE:'centerTitle';
+SCAFFOLD:'Scaffold';
+APP_BAR_WIDGET:'AppBar';
+APP_BAR:'appBar';
+BODY:'body';
+ROW:'Row';
+TEXT_FORM_FIELD:'TextFormField';
+CONTROLLER:'controller';
+DECORATION:'decoration';
+INPUT_DECORATION:'InputDecoration';
+HINT_TEXT:'hintText';
+BORDER:'border';
+OUT_LINE_INPUT_BORDER:'OutlineInputBorder';
+BORDER_RADIUS:'borderRadius';
+BORDER_RADIUS_WEDGET:'BorderRadius';
+CIRCULAR:'circular';
+ELIVATED_BUTTON:'ElevatedButton';
+ON_PRESSED:'onPressed';
+
+ID:[a-zA-Z_][a-zA-Z0-9_]*;
+NAME:LETTER+;
+SINGLEDARTCOMMENT:'//'~[\n]*->skip;
+MULTIDARTCOMMENT:'/*'.*?'*/'->skip;
+
+
+
+

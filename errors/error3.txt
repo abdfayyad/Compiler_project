@@ -1,0 +1,115 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+void main() {
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MyProductPage(),
+    );
+  }
+}
+
+class Anime {
+  String name;
+  String imageName;
+  String price;
+  String description;
+    AA(this.name , this.imageName , this.price , this.description);
+}
+
+class MyProductPage extends StatelessWidget {
+
+
+  List animeList = [
+   SS(
+        'Uzumaki Naruto', 'https://www.w3schools.com/images/w3schools_green.jpg', '22', 'ddffgfv'),
+     Anime('Uchiha Sasuke', 'https://www.w3schools.com/images/w3schools_green.jpg', '333',
+        'fvgservesr'),
+     Anime(
+        'Haruno sakura' ,'https://www.w3schools.com/images/w3schools_green.jpg', '445', 'dsverge'),
+     Anime('Hatake Kakashi', 'https://www.w3schools.com/images/w3schools_green.jpg', '344',
+        'rvgregrew')
+  ];
+
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Row(children: [
+      Expanded(
+        child: Container(
+          child: ListView.builder(
+              itemCount: animeList.length,
+              itemBuilder: (BuildContext context, int index) {
+                return InkWell(
+                  onTap: () {
+                   //   Navigator.push(
+                 // context,
+                    // MaterialPageRoute(
+                    //  builder: (context) =>
+                  //          MyDetailsScreen(animeList[index])));
+                 Get.to(MyDetailsScreen(animeList[index]));
+                  },
+                  child: Container(
+                    height: 300.2,
+                    width: 150.5,
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 250.4,
+                            width: 150.4,
+                            child: Image.asset(animeList[index].imageName),
+                          ),
+                          const SizedBox(
+                            height: 10.4,
+                          ),
+                          Text(animeList[index].name)
+                        ]),
+                  ),
+                );
+              }),
+        ),
+      )
+    ]));
+  }
+}
+
+class MyDetailsScreen extends StatelessWidget {
+  Anime dd = new Anime();
+  MyDetailsScreen(this.dd);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Row(children: [
+      Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Container(
+          height: 500.4,
+          width: 300.4,
+          child: Image.asset(dd.imageName),
+        ),
+        SizedBox(
+          height: 10.5,
+        ),
+        Text(dd.name),
+        Text(dd.price),
+        Text(dd.description)
+      ])
+    ]));
+  }
+}
+
+
+
+
+
+
+
+
+
+
